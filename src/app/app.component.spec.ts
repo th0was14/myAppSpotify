@@ -1,11 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ArtistServiceService } from './artist.service/artist.service';
+import { SpotifyAuthService } from './spotify-auth/spotify-auth.service';
+import { HttpModule } from '@angular/http';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [ArtistServiceService, SpotifyAuthService],
       declarations: [
         AppComponent
       ],
+      imports: [HttpModule]
     }).compileComponents();
   }));
   it('should create the app', async(() => {

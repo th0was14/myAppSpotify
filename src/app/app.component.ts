@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ArtistServiceService } from './artist.service/artist.service';
+import { Artist } from './artist/artist';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(private _artistService: ArtistServiceService) {
+    //this.GetArtist();
+  }
+
+  GetArtist() {
+    this._artistService.GetArtists().subscribe((artists: Artist[]) => {
+      if (artists) {
+        console.log(artists.length);
+      }
+    });
+  }
+
 }
